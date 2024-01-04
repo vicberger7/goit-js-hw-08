@@ -1,0 +1,14 @@
+body {
+    width: 392px;
+    height: 840px;
+
+    display: inline-flex;
+        padding: 24px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+        border-radius: 8px;
+      background: #FFF;
+}
+
+
