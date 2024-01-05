@@ -65,6 +65,7 @@ const images = [
 ];
 
 const gallery = document.querySelector('ul.gallery');
+let lightbox = null;
 
 const createGalleryItem = image => {
   const galleryItem = document.createElement('li');
@@ -105,25 +106,22 @@ const handleGalleryClick = event => {
   if (event.target.classList.contains('gallery-image')) {
     const largeImageUrl = event.target.getAttribute('data-source');
     console.log('Large Image URL:', largeImageUrl);
-    const lightbox = basicLightbox.create(
-      `<img src="${largeImageUrl}" alt="Large Image">`,
-    );
-    const lightboxImage = lightbox.element().querySelector('img');
-    lightboxImage.src = largeImageUrl;
+
+    if (!lightbox) {
+      lightbox = basicLightbox.create(
+        `<img src="${largeImageUrl}" alt="Large Image">`,
+      );
+
+      const closeLightboxOnEscape = event => {
+        if (event.key === 'Escape') {
+          lightbox.close();
+          document.removeEventListener('keydown', closeLightboxOnEscape);
+        }
+      };
+
+      document.addEventListener('keydown', closeLightboxOnEscape);
+    }
     lightbox.show();
-
-    const closeLightboxOnEscape = event => {
-      if (event.key === 'Escape') {
-        lightbox.close();
-        document.removeEventListener('keydown', closeLightboxOnEscape);
-      }
-    };
-
-    document.addEventListener('keydown', closeLightboxOnEscape);
-
-    document
-      .querySelector('ul.gallery')
-      .addEventListener('click', handleGalleryClick);
   }
 };
 
