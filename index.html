@@ -4,21 +4,26 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>Image Gallery</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/basiclightbox/dist/basicLightbox.min.css"
+    />
   </head>
   <body>
-    <a href="task-1.html"></a>
-    <a href="task-2.html"></a>
-    <a href="task-3.html"></a>
-    <a href="task-4.html"></a>
-    <a href="task-5.html"></a>
-    <a href="task-6.html"></a>
-    <!-- <script src="./js/task-1.js" type="module"></script>
-    <script src="./js/task-2.js" type="module"></script>
-    <script src="./js/task-3.js" type="module"></script>
-    <script src="./js/task-4.js" type="module"></script>
-    <script src="./js/task-5.js" type="module"></script>
-    <script src="./js/task-6.js" type="module"></script> -->
+    <ul class="gallery"></ul>
+    <li class="gallery-item">
+      <a class="gallery-link" href="large-image.jpg">
+        <img
+          class="gallery-image"
+          src="small-image.jpg"
+          data-source="large-image.jpg"
+          alt="Image description"
+        />
+      </a>
+    </li>
+    <script src="https://cdn.jsdelivr.net/npm/basiclightbox/dist/basicLightbox.min.js"></script>
+    <script src="./js/gallery.js" type="module"></script>
   </body>
 </html>
